@@ -6,6 +6,29 @@ const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
 const Cart = lazy(() => import("./pages/Cart"));
 
+
+// Admin Routes Importing
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const Products = lazy(() => import("./pages/admin/products")); //could be problematic
+const Transaction = lazy(() => import("./pages/admin/Transaction"));
+const Customers = lazy(() => import("./pages/admin/Customers"));
+const BarCharts = lazy(() => import("./pages/admin/charts/BarCharts"));
+const PieCharts = lazy(() => import("./pages/admin/charts/PieCharts"));
+const LineCharts = lazy(() => import("./pages/admin/charts/LineCharts"));
+const StopWatch = lazy(() => import("./pages/admin/apps/StopWatch"));
+const Coupon = lazy(() => import("./pages/admin/apps/Coupon"));
+const Toss = lazy(() => import("./pages/admin/apps/Toss"));
+
+// Management Pages
+const NewProduct = lazy(() => import("./pages/admin/management/NewProduct"));
+const ProductManagement = lazy(
+  () => import("./pages/admin/management/ProductManagement")
+);
+const TransactionManagement = lazy(
+  () => import("./pages/admin/management/TransactionManagement")
+);
+
+
 const App = () => {
   return (
     <Router>
@@ -15,6 +38,39 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
+
+
+           {/* Admin: */}
+           <Route>
+           {/* <Route
+            path="/"
+            element={<Link to="/admin/dashboard">Visit Dashboard</Link>}
+          /> */}
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/products" element={<Products />} />
+          <Route path="/admin/transaction" element={<Transaction />} />
+          <Route path="/admin/customers" element={<Customers />} />
+
+          {/* Charts */}
+          <Route path="/admin/chart/bar" element={<BarCharts />} />
+          <Route path="/admin/chart/pie" element={<PieCharts />} />
+          <Route path="/admin/chart/line" element={<LineCharts />} />
+
+          {/* Apps */}
+          <Route path="/admin/app/stopwatch" element={<StopWatch />} />
+          <Route path="/admin/app/coupon" element={<Coupon />} />
+          <Route path="/admin/app/toss" element={<Toss />} />
+
+          {/* Management */}
+          <Route path="/admin/products/new" element={<NewProduct />} />
+          <Route path="/admin/products/:id" element={<ProductManagement />} />
+          <Route
+            path="/admin/transaction/:id"
+            element={<TransactionManagement />}
+          />
+          </Route>
+
+
         </Routes>
       </Suspense>
     </Router>
