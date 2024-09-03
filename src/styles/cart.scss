@@ -11,8 +11,8 @@ $color3: rgb(0, 104, 136);
         >h1{
             @include heading(2px);
             text-align: center;
+            overflow-y: auto;
         }
-        overflow-y: auto;
         &::-webkit-scrollbar{
             display: none;
         }

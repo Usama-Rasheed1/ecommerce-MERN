@@ -6,7 +6,7 @@ import Header from "./components/Header";
 const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
 const Cart = lazy(() => import("./pages/Cart"));
-
+const Shipping = lazy(() => import("./pages/Shipping"));
 
 // Admin Routes Importing
 const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
@@ -29,7 +29,6 @@ const TransactionManagement = lazy(
   () => import("./pages/admin/management/TransactionManagement")
 );
 
-
 const App = () => {
   return (
     <Router>
@@ -41,38 +40,40 @@ const App = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
 
+          {/* Logged In User Routes */}
+          <Route>
+            <Route path="/shipping" element={<Shipping />} />
+          </Route>
 
-           {/* Admin: */}
-           <Route>
-           {/* <Route
+          {/* Admin: */}
+          <Route>
+            {/* <Route
             path="/"
             element={<Link to="/admin/dashboard">Visit Dashboard</Link>}
           /> */}
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/products" element={<Products />} />
-          <Route path="/admin/transaction" element={<Transaction />} />
-          <Route path="/admin/customers" element={<Customers />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/products" element={<Products />} />
+            <Route path="/admin/transaction" element={<Transaction />} />
+            <Route path="/admin/customers" element={<Customers />} />
 
-          {/* Charts */}
-          <Route path="/admin/chart/bar" element={<BarCharts />} />
-          <Route path="/admin/chart/pie" element={<PieCharts />} />
-          <Route path="/admin/chart/line" element={<LineCharts />} />
+            {/* Charts */}
+            <Route path="/admin/chart/bar" element={<BarCharts />} />
+            <Route path="/admin/chart/pie" element={<PieCharts />} />
+            <Route path="/admin/chart/line" element={<LineCharts />} />
 
-          {/* Apps */}
-          <Route path="/admin/app/stopwatch" element={<StopWatch />} />
-          <Route path="/admin/app/coupon" element={<Coupon />} />
-          <Route path="/admin/app/toss" element={<Toss />} />
+            {/* Apps */}
+            <Route path="/admin/app/stopwatch" element={<StopWatch />} />
+            <Route path="/admin/app/coupon" element={<Coupon />} />
+            <Route path="/admin/app/toss" element={<Toss />} />
 
-          {/* Management */}
-          <Route path="/admin/products/new" element={<NewProduct />} />
-          <Route path="/admin/products/:id" element={<ProductManagement />} />
-          <Route
-            path="/admin/transaction/:id"
-            element={<TransactionManagement />}
-          />
+            {/* Management */}
+            <Route path="/admin/products/new" element={<NewProduct />} />
+            <Route path="/admin/products/:id" element={<ProductManagement />} />
+            <Route
+              path="/admin/transaction/:id"
+              element={<TransactionManagement />}
+            />
           </Route>
-
-
         </Routes>
       </Suspense>
     </Router>
