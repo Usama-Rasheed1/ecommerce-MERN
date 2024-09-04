@@ -1,8 +1,10 @@
 @import "./adminStyles/mixin.scss";
 
 @import "home";
+@import "login";
 @import "cart";
 @import "shipping";
+@import "search";
 @import "./adminStyles/dashboard.scss";
 @import "./adminStyles/products.scss";
 @import "./adminStyles/chart";
@@ -82,6 +84,11 @@ $color3: rgb(0, 104, 136);
   }
 }
 
+.heading{
+  @include heading;
+  margin: 1rem 0;
+  text-align: center;
+}
 .table {
   border-collapse: collapse;
   width: 100%;
@@ -212,7 +219,18 @@ $color3: rgb(0, 104, 136);
 }
 
 
-// this project
+.container{
+  max-width: 1367px;
+  width: 80%;
+  margin: auto;
+  overflow: auto;
+  >h1{
+    @include heading;
+    margin: 1rem 0;
+    text-align: left;
+  }
+}
+
 
 .header{
   @include flex(row, flex-end, stretch, 1.2rem);
